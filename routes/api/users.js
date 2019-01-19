@@ -7,8 +7,9 @@ const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
 const passport = require("passport");
 
-//Load Register Input Validator
+//Load Register & Login Input Validator
 const validateRegisterInput = require("../../validation/register");
+const validateLoginInput = require("../../validation/login");
 
 //@route    GET api/users/test
 //@desc     Route for test
@@ -21,8 +22,6 @@ router.get("/test", (req, res) => res.json({ msg: "User Success" }));
 router.post("/register", (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
 
-  // console.log("validateRegisterInput done");
-  // process.exit();
   // Check Validation
   if (!isValid) {
     return res.status(400).json(errors);
@@ -64,11 +63,21 @@ router.post("/register", (req, res) => {
 //@desc     Login User / Returning JWT Token
 //@access   Public
 router.post("/login", (req, res) => {
+  const { errors, isValid } = validateLoginInput(req.body);
+
+  // Check Validation
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+
   const email = req.body.email;
   const password = req.body.password;
 
   User.findOne({ email }).then(user => {
-    if (!user) return res.status(404).json({ email: "Email not found" });
+    if (!user) {
+      errors.email = "Email not found";
+      return res.status(404).json(errors);
+    }
 
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
@@ -92,7 +101,8 @@ router.post("/login", (req, res) => {
           }
         );
       } else {
-        res.status(404).json({ password: "Password Incorrect" });
+        errors.password = "Password Incorrect";
+        res.status(404).json(errors);
       }
     });
   });
