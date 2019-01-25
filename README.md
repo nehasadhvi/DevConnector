@@ -1,7 +1,7 @@
 # DevConnector
 
 <ul>
-  <li>DevConnector is a social networking application for Developers where they can create their account</li>
+  <li>DevConnector is a social networking application for developers where they can create their account for connecting with peer developers</li>
   <li>Allows the user to create their profile and connect their own websites to their DevConnector profile</li>
   <li>Developers can create posts, like and comment on the created posts</li>
 </ul>
