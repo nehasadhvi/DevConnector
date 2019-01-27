@@ -24,12 +24,12 @@ Now, after succesfully cloning the repo, you need to install all the dependencie
 npm install
 ```
 
-Now, you are all set to run the application from your local machine. To run the application, go to terminal and use the following command and the app will start running on available port :
+Now, you are all set to run the application from your local machine. To run the application, go to terminal and use the following command and the app will start running on defined port :
 ```
 npm run dev
 ```
 
-This will make your application run on PORT 3000, if in use, on next available port.
+This will make your application run on PORT 3000, make sure it is not in use.
 
 Happy Dev-Connecting ! ;)
 
