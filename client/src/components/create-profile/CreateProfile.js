@@ -247,3 +247,4 @@ export default connect(
   mapStateToProps,
   { createProfile }
 )(withRouter(CreateProfile));
+
