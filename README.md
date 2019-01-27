@@ -19,7 +19,7 @@ or
 git clone https://github.com/nehasadhvi/DevConnector.git
 ```
 
-Now, after succesfully cloning the repo, you need to install all the dependencies on your local computer for which you need to use the following command :
+Now, after succesfully cloning the repo, you need to install all the dependencies on your local computer for which you need to use the following command in main folder to download back-end dependencies as well as inside "client" folder to download front-end dependencies :
 ```
 npm install
 ```
