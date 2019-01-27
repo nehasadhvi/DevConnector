@@ -26,7 +26,7 @@ npm install
 
 Now, you are all set to run the application from your local machine. To run the application, go to terminal and use the following command and the app will start running on available port :
 ```
-npm start
+npm run dev
 ```
 
 This will make your application run on PORT 3000, if in use, on next available port.
